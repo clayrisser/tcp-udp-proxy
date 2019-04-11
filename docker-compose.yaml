@@ -1,16 +1,5 @@
-version: '2'
+version: '3'
 
 services:
-  build:
-    image: ${IMAGE}:latest
-    build:
-      context: latest
-  major:
-    extends: build
-    image: ${IMAGE}:${MAJOR}
-  minor:
-    extends: build
-    image: ${IMAGE}:${MAJOR}.${MINOR}
-  patch:
-    extends: build
-    image: ${IMAGE}:${MAJOR}.${MINOR}.${PATCH}
+  tcp-udp-proxy:
+    image: codejamninja/tcp-udp-proxy:latest

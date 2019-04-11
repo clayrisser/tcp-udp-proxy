@@ -1,4 +1,4 @@
-IMAGE := codejamninja/green-docker
+IMAGE := codejamninja/tcp-udp-proxy
 VERSION := 0.0.1
 
 MAJOR := $(shell echo $(VERSION) | cut -d. -f1)
@@ -12,12 +12,12 @@ all: clean build
 
 .PHONY: build
 build:
-	@docker-compose build
+	@docker-compose -f docker-build.yaml build
 
 .PHONY: pull
 pull:
-	@docker-compose pull
+	@docker-compose -f docker-build.yaml pull
 
 .PHONY: push
 push:
-	@docker-compose push
+	@docker-compose -f docker-build.yaml push
