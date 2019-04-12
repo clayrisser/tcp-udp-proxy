@@ -14,6 +14,10 @@ all: clean build
 build:
 	@docker-compose -f docker-build.yaml build
 
+.PHONY: clean
+clean:
+	@git clean -fXd
+
 .PHONY: pull
 pull:
 	@docker-compose -f docker-build.yaml pull
@@ -21,3 +25,15 @@ pull:
 .PHONY: push
 push:
 	@docker-compose -f docker-build.yaml push
+
+.PHONY: run
+run: build
+	@docker run --rm $(IMAGE):latest
+
+.PHONY: ssh
+ssh: build
+	@docker run --rm -it --entrypoint /bin/sh $(IMAGE):latest
+
+.PHONY: up
+up: build
+	@docker-compose up

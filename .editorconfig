@@ -7,6 +7,9 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[*.conf{,.tmpl}]
+charset = utf-8
+indent_size = 4
 
 [*.y{,a}ml]
 charset = utf-8

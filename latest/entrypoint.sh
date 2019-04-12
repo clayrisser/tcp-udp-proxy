@@ -1,3 +1,5 @@
 #!/bin/sh
 
-exec nginx -g "daemon off;"
+confd -onetime -backend env
+
+exec nginx -g "daemon off;" $@

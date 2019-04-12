@@ -3,3 +3,7 @@ version: '3'
 services:
   tcp-udp-proxy:
     image: codejamninja/tcp-udp-proxy:latest
+    environment:
+      BACKENDS: localhost:22
+      LISTEN: 22
+      PROTOCOL: tcp
