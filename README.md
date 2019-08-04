@@ -29,7 +29,25 @@ docker run codejamninja/tcp-udp-proxy
 
 ## Usage
 
-[Contribute](https://github.com/codejamninja/tcp-udp-proxy/blob/master/CONTRIBUTING.md) usage docs
+| Environment       | Description                                   | Default Value    |
+| -----------       | --------------------------------------------- | -------------    |
+| `LISTEN`          | port server listens on                        | `6888`           |
+| `PROTOCOL`        | `tcp` or `udp`                                | `tcp`            |
+| `PROXY_RESPONSES` | number of datagrams expected from the proxied | not set          |
+| `UPSTREAM`        | array of upstream backends                    | `example.com:22` |
+
+
+## Example
+
+You can run the example I have setup. Notice that the ssh session is being
+proxied over this container
+
+```
+docker-compose up
+ssh root@localhost -p 6888
+```
+
+password is `root`
 
 
 ## Support

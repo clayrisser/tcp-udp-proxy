@@ -9,19 +9,21 @@ events {
 }
 
 stream {
-    upstream backends {
-        {{- $url := split (getenv "BACKENDS") "," }}
-        {{- range $url }}
-        server {{ . }};
-        {{- end }}
-    }
     server {
         {{- if (eq (toLower (getenv "PROTOCOL")) "udp") }}
         listen {{ getenv "LISTEN" }} udp;
-        proxy_responses 1;
+        {{- if (not (eq (toLower (getenv "PROXY_RESPONSES")) "")) }}
+        proxy_responses {{ getenv "PROXY_RESPONSES" }};
+        {{- end }}
         {{- else }}
         listen {{ getenv "LISTEN" }};
         {{- end }}
         proxy_pass backends;
+    }
+    upstream backends {
+        {{- $url := split (getenv "UPSTREAM") "," }}
+        {{- range $url }}
+        server {{ . }};
+        {{- end }}
     }
 }

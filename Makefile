@@ -1,5 +1,5 @@
 IMAGE := codejamninja/tcp-udp-proxy
-VERSION := 0.0.1
+VERSION := 0.1.0
 
 MAJOR := $(shell echo $(VERSION) | cut -d. -f1)
 MINOR := $(shell echo $(VERSION) | cut -d. -f2)
@@ -28,7 +28,7 @@ push:
 
 .PHONY: run
 run: build
-	@docker run --rm $(IMAGE):latest
+	@docker run --rm -p 6888:6888 $(IMAGE):latest
 
 .PHONY: ssh
 ssh: build

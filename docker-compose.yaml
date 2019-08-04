@@ -3,7 +3,12 @@ version: '3'
 services:
   tcp-udp-proxy:
     image: codejamninja/tcp-udp-proxy:latest
+    ports:
+      - 6888:6888
     environment:
-      BACKENDS: localhost:22
-      LISTEN: 22
-      PROTOCOL: tcp
+      UPSTREAM: ssh:22
+    links:
+      - ssh:ssh
+
+  ssh:
+    image: arvindr226/alpine-ssh:latest
