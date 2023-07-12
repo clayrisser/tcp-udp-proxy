@@ -2,6 +2,8 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/codejamninja/tcp-udp-proxy.svg?style=social&label=Stars)](https://github.com/codejamninja/tcp-udp-proxy)
 
+![](assets/tcp-udp-proxy.png)
+
 > proxy and load balance tcp and udp
 
 Please ★ this repo if you found it useful ★ ★ ★
